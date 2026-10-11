@@ -1,0 +1,40 @@
+/* DocumentPage */
+.doc {
+  display: grid;
+  gap: var(--s-7);
+}
+
+/* Unboxed: an ink rule above and a hairline below frame the document. */
+.doc__card {
+  display: grid;
+  gap: var(--s-5);
+  padding-block: var(--s-6);
+  border-top: var(--route-weight) solid var(--ink);
+  border-bottom: var(--border);
+}
+
+.doc__card .doc__icon {
+  color: var(--rust);
+}
+
+.doc__title {
+  font-size: var(--text-h3);
+  margin-top: var(--s-2);
+}
+
+.doc__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.doc__note a {
+  color: var(--rust);
+}
+
+@media (min-width: 56em) {
+  .doc__card {
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+  }
+}

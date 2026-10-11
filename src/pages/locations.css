@@ -1,0 +1,61 @@
+/* locations */
+.locations-body {
+  background: var(--paper-deep);
+}
+
+/* Stacked on small screens, each depot under an ink rule. */
+.depots {
+  display: grid;
+}
+
+.depots > * {
+  border-top: var(--border-ink);
+  padding-bottom: var(--s-6);
+}
+
+.notes {
+  display: grid;
+  gap: var(--grid-gap);
+  margin-top: var(--s-8);
+  padding-top: var(--s-6);
+  border-top: var(--border-ink);
+}
+
+.note {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--s-3);
+  max-width: 34em;
+}
+
+.note svg {
+  color: var(--rust);
+  margin-top: 0.2rem;
+}
+
+.note a {
+  color: var(--rust);
+}
+
+@media (min-width: 56em) {
+  /* Three columns under one ink rule, separated by hairlines. */
+  .depots {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: var(--border-ink);
+  }
+
+  .depots > * {
+    border-top: 0;
+    border-left: var(--border);
+    padding-inline: var(--s-6);
+  }
+
+  .depots > *:first-child {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .notes {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

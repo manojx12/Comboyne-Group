@@ -1,0 +1,9 @@
+/* BaseLayout */
+main:focus {
+  outline: none;
+}
+
+/* Dark openings run up under the transparent header (no layout shift: the header stays in flow). */
+html:has([data-hero-end]) #main {
+  margin-top: calc(-1 * var(--header-height));
+}

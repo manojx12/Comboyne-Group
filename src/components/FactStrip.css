@@ -1,0 +1,80 @@
+/* FactStrip */
+.figures {
+  padding-block: var(--s-8);
+  border-bottom: var(--border);
+}
+
+.figures__list {
+  display: grid;
+  gap: var(--s-7);
+}
+
+.figures__item {
+  container-type: inline-size;
+  display: grid;
+  align-content: start;
+  gap: var(--s-2);
+  padding-top: var(--s-4);
+  border-top: var(--border-ink);
+}
+
+.figures__key {
+  color: var(--rust);
+}
+
+/* Sized to its column (cqi) so a four-digit year always fits on one line. */
+.figures__value {
+  font-size: clamp(3.5rem, 30cqi, 9rem);
+  font-weight: var(--weight-display);
+  font-stretch: var(--stretch-display);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+}
+
+.figures__note {
+  font-size: 0.9375rem;
+  color: var(--steel);
+  max-width: 28em;
+}
+
+@media (min-width: 48em) {
+  .figures__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--grid-gap);
+  }
+}
+
+/* Inline: inside the homepage reveal. */
+.figures--inline {
+  padding-block: 0;
+  border-bottom: 0;
+}
+
+.figures--inline > .container {
+  width: auto;
+}
+
+/* Numerals share a baseline even when a key wraps ("Core services" on narrow screens). */
+.figures--inline .figures__item {
+  grid-template-rows: 1fr auto auto;
+}
+
+.figures--inline .figures__key {
+  align-self: end;
+}
+
+.figures--inline .figures__value {
+  font-size: clamp(1.75rem, 26cqi, 7rem); /* four digits fit a third of a 390px screen */
+}
+
+@media (max-width: 47.99em) {
+  .figures--inline .figures__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--s-4);
+  }
+
+  .figures--inline .figures__note {
+    display: none;
+  }
+}

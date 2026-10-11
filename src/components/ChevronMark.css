@@ -1,0 +1,5 @@
+/* ChevronMark */
+.chevron-mark {
+  display: block;
+  pointer-events: none;
+}

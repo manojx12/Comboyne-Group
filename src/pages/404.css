@@ -1,0 +1,19 @@
+/* 404 */
+.notfound {
+  display: grid;
+  gap: var(--s-5);
+  padding-block: var(--s-8);
+}
+
+.notfound__code {
+  color: var(--rust);
+}
+
+.notfound__links {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4) var(--s-6);
+  margin-top: var(--s-4);
+}

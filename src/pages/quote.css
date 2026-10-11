@@ -1,0 +1,83 @@
+/* quote */
+.quote-layout {
+  display: grid;
+  gap: var(--s-8);
+}
+
+.quote-aside {
+  display: grid;
+  gap: var(--s-6);
+  align-content: start;
+}
+
+.quote-aside__block {
+  display: grid;
+  gap: var(--s-3);
+  padding-top: var(--s-4);
+  border-top: var(--border-ink);
+}
+
+.quote-aside__title {
+  color: var(--rust);
+}
+
+.checklist {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--s-2);
+  font-size: 1rem;
+}
+
+.checklist li {
+  display: grid;
+  grid-template-columns: 1.25rem 1fr;
+  gap: var(--s-2);
+  align-items: start;
+}
+
+.checklist svg {
+  margin-top: 0.3em;
+  color: var(--rust);
+}
+
+.direct {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--s-4);
+  font-size: 1rem;
+}
+
+.direct li {
+  display: grid;
+}
+
+.direct__dept {
+  font-weight: 650;
+}
+
+.direct a {
+  overflow-wrap: anywhere;
+}
+
+.quote-aside__existing .link-arrow {
+  justify-self: start;
+}
+
+.quote-main {
+  min-width: 0;
+}
+
+@media (min-width: 64em) {
+  .quote-layout {
+    grid-template-columns: 4fr 8fr;
+    gap: calc(var(--grid-gap) * 3);
+    align-items: start;
+  }
+
+  .quote-aside {
+    position: sticky;
+    top: calc(var(--header-height) + var(--s-6));
+  }
+}

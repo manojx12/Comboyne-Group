@@ -1,0 +1,150 @@
+/* ProcessFlow */
+.flow {
+  background: var(--paper-deep);
+}
+
+.flow__head {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 40rem;
+}
+
+.flow__title {
+  font-size: var(--text-h2);
+}
+
+.flow__intro {
+  color: var(--steel);
+}
+
+.flow__route {
+  position: relative;
+  list-style: none;
+  padding: 0;
+  margin-top: var(--s-8);
+  display: grid;
+  gap: var(--s-6);
+}
+
+/* Vertical route on small screens. */
+.flow__route::before {
+  content: '';
+  position: absolute;
+  left: calc(var(--route-node) / 2 - var(--route-weight) / 2);
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: var(--route-weight);
+  background: var(--ink);
+  transform-origin: top;
+}
+
+.flow__stop {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: var(--s-2);
+  padding-left: var(--s-6);
+}
+
+/* Stops: hollow squares on the line; the first stop is the filled start node. */
+.flow__marker {
+  position: absolute;
+  left: 0;
+  top: 0.4rem;
+  width: var(--route-node);
+  height: var(--route-node);
+  background: var(--paper);
+  border: var(--route-weight) solid var(--ink);
+}
+
+.flow__stop:first-child .flow__marker {
+  background: var(--ink);
+}
+
+/* Thin numerals, one step down from the service groups (figures 9rem, groups 7rem, stages 4rem). */
+.flow__num {
+  font-size: clamp(2.5rem, 1.6rem + 2.4vw, 4rem);
+  font-weight: var(--weight-display);
+  font-stretch: var(--stretch-display);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.flow__stage {
+  font-size: clamp(1.375rem, 1.2rem + 0.7vw, 1.75rem);
+}
+
+.flow__stage a {
+  text-decoration: none;
+}
+
+.flow__stage a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.15em;
+}
+
+.flow__text {
+  color: var(--steel);
+  font-size: 1rem;
+  max-width: 26em;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .js .flow__route::before {
+    transform: scaleY(0);
+    transition: transform 1200ms var(--ease-out);
+  }
+
+  .js .flow__route.is-visible::before {
+    transform: none;
+  }
+}
+
+@media (min-width: 64em) {
+  .flow__route {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--grid-gap);
+    padding-top: var(--s-6);
+  }
+
+  /* Horizontal route with a chevron terminal on wide screens. */
+  .flow__route::before {
+    left: 0;
+    right: 0;
+    top: calc(var(--route-node) / 2 - var(--route-weight) / 2);
+    bottom: auto;
+    width: auto;
+    height: var(--route-weight);
+    transform-origin: left;
+  }
+
+  .flow__route::after {
+    content: '';
+    position: absolute;
+    right: 1px;
+    top: calc(var(--route-node) / 2 - var(--route-chevron) / 2);
+    width: var(--route-chevron);
+    height: var(--route-chevron);
+    border-right: var(--route-weight) solid var(--ink);
+    border-top: var(--route-weight) solid var(--ink);
+    transform: rotate(45deg);
+  }
+
+  .flow__stop {
+    padding-left: 0;
+    padding-right: var(--s-5);
+  }
+
+  .flow__marker {
+    top: calc(var(--s-6) * -1);
+  }
+
+  .js .flow__route::before {
+    transform: scaleX(0);
+  }
+
+  .js .flow__route.is-visible::before {
+    transform: none;
+  }
+}

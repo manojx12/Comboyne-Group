@@ -1,0 +1,121 @@
+/* PageIntro: light opening for inner pages. */
+.page-intro {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  padding-block: var(--s-6) var(--s-8);
+  border-bottom: var(--border);
+}
+
+/* The logo's chevron, as thin outlines at the right edge. Decorative. */
+.page-intro .page-intro__mark {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  right: -6%;
+  width: min(28%, 22rem);
+  height: 100%;
+  opacity: 0.55;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  list-style: none;
+  padding: 0;
+  font-stretch: var(--stretch-label);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.breadcrumbs li + li::before {
+  content: '/';
+  margin-right: var(--s-2);
+  color: var(--hairline);
+}
+
+.page-intro .breadcrumbs a {
+  display: inline-block;
+  padding-block: 0.4rem; /* 24px+ target without changing the line */
+  margin-block: -0.4rem;
+  color: inherit;
+}
+
+.breadcrumbs [aria-current] {
+  color: var(--ink);
+}
+
+.page-intro__title {
+  max-width: min(12em, 78%);
+  margin-top: var(--s-8);
+  overflow-wrap: break-word;
+}
+
+/* A long rule under the title, then label | lead | actions. */
+.page-intro__meta {
+  display: grid;
+  gap: var(--s-4) var(--grid-gap);
+  margin-top: var(--s-6);
+  padding-top: var(--s-5);
+  border-top: var(--border-ink);
+}
+
+.page-intro__label {
+  color: var(--rust);
+}
+
+.page-intro__lead {
+  max-width: 34em;
+}
+
+.page-intro__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .page-intro__title {
+    animation: intro-rise var(--dur-3) var(--ease-out) both;
+  }
+}
+
+@keyframes intro-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.2em);
+  }
+}
+
+@media (max-width: 47.99em) {
+  .page-intro__title {
+    max-width: none;
+    margin-top: var(--s-7);
+  }
+
+  .page-intro .page-intro__mark {
+    width: 40%;
+    height: 9rem;
+    right: -16%;
+    opacity: 0.4;
+  }
+}
+
+@media (min-width: 64em) {
+  .page-intro {
+    padding-block: var(--s-6) var(--s-9);
+  }
+
+  .page-intro__meta {
+    grid-template-columns: minmax(0, 3fr) minmax(0, 6fr) minmax(0, 3fr);
+    align-items: start;
+  }
+
+  .page-intro__actions {
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,70 @@
+/* QuoteCTA */
+.cta {
+  padding-block: var(--section-space) var(--s-8);
+}
+
+.cta__inner {
+  position: relative;
+  display: grid;
+  gap: var(--s-7);
+  padding-top: var(--s-7);
+}
+
+/* Shared route motif across the top of the block (see global .route). */
+.cta__route {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.cta__text {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.cta__title {
+  font-size: clamp(2.25rem, 1.1rem + 3.8vw, 5rem);
+  line-height: 1;
+  max-width: 15em;
+}
+
+.cta__lead {
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  color: var(--steel-light);
+  max-width: 32em;
+}
+
+.cta__side {
+  display: grid;
+  gap: var(--s-4);
+  align-content: end;
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.cta__phone {
+  font-size: var(--text-sm);
+  color: var(--steel-light);
+}
+
+.cta__phone a {
+  color: var(--paper);
+  font-weight: 600;
+}
+
+@media (min-width: 64em) {
+  .cta__inner {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    align-items: end;
+  }
+
+  .cta__side {
+    justify-items: start;
+  }
+}

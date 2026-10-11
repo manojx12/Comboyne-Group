@@ -1,0 +1,40 @@
+/* Photo */
+.photo {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.photo__frame {
+  position: relative;
+  aspect-ratio: var(--ratio);
+  overflow: hidden;
+  background: var(--paper-deep);
+}
+
+.photo__frame picture,
+.photo__frame img {
+  width: 100%;
+  height: 100%;
+}
+
+.photo__frame img {
+  object-fit: cover;
+  object-position: var(--position);
+}
+
+.photo__credit {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.04em;
+  color: var(--steel);
+}
+
+.photo__credit a {
+  color: inherit;
+  /* Inline padding enlarges the tap area to 24px without moving the text. */
+  padding-block: 6px;
+}
+
+.on-dark .photo__credit {
+  color: var(--steel-light);
+}

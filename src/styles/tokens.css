@@ -1,0 +1,99 @@
+/*
+ * Comboyne Group design tokens: "The Art of Moving Workspaces".
+ *
+ * Palette is mostly neutral; orange is reserved for primary actions and
+ * small directional details. Contrast (WCAG 2.2), measured on --paper unless stated:
+ *   ink #191A18 ........... ~16:1  text, headings
+ *   steel #626761 ......... ~5.2:1 secondary text (≈4.7:1 on --paper-deep)
+ *   rust #984D1D .......... ~5.5:1 accent text and links (≈5:1 on --paper-deep)
+ *   ink on orange #E58A32 . ~6.6:1 primary buttons (dark text on orange)
+ *   orange on ink ......... ~6.6:1 accents on the closing dark block
+ *   steel-light on ink .... ~7:1   secondary text on dark
+ * Hairline is decorative only and never carries text.
+ */
+:root {
+  /* Colour */
+  --ink: #191a18;
+  --ink-raised: #232421;
+  --ink-line: #393a35;
+  --paper: #f5f3ee; /* warm white: page surface */
+  --paper-deep: #eae7df; /* paper: alternate surface */
+  --surface: #fbfaf7; /* inputs and raised panels */
+  --steel: #626761;
+  --steel-light: #a5a99f;
+  --hairline: #d6d2c9;
+  --orange: #e58a32;
+  --orange-hover: #d97b22;
+  --rust: #984d1d;
+  --focus: var(--ink);
+
+  /* Typography: display grotesk, body sans, operational mono */
+  /* One family, LODISNA-style: Archivo variable stands in for Tomato Grotesk (commercial licence). */
+  --font-display: 'Archivo Variable', 'Archivo', system-ui, sans-serif;
+  --font-sans: 'Archivo Variable', 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --font-mono: var(--font-sans); /* labels are Archivo bold uppercase, not monospace */
+
+  /*
+   * Type scale (docs/DESIGN-AUDIT.md §4). Headings are sentence case, light and normal width,
+   * as on the reference; the wide uppercase display style is kept for the COMBOYNE wordmark
+   * and for figures only.
+   */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem; /* notes and captions only, never content */
+  --text-base: 1.0625rem; /* 17px */
+  --text-lead: clamp(1.125rem, 1.06rem + 0.3vw, 1.25rem);
+  --text-h3: clamp(1.25rem, 1.12rem + 0.45vw, 1.5rem);
+  --text-h2: clamp(2rem, 1.2rem + 2.8vw, 4rem);
+  --text-h1: clamp(2.5rem, 1.4rem + 4.2vw, 5.75rem);
+  --text-wordmark: clamp(2rem, 11.6vw, 11.5rem);
+  --text-numeral: clamp(4rem, 2rem + 9vw, 11rem);
+  --stretch-display: 125%; /* wordmark and figures */
+  --stretch-label: 112%;
+  --stretch-heading: 100%;
+  --weight-display: 150; /* wordmark and figures */
+  --weight-heading: 300; /* H1, H2 */
+  --weight-h3: 450; /* H3, item titles, form groups */
+
+  --leading-tight: 1;
+  --leading-snug: 1.2;
+  --leading-body: 1.6;
+  --measure: 62ch;
+
+  /* Spacing (4px base) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+  --s-10: 8rem;
+  --section-space: clamp(4rem, 2.6rem + 5.5vw, 8rem);
+
+  /* Layout */
+  --container: 80rem;
+  --container-wide: 88rem;
+  --container-text: 40rem;
+  --gutter: clamp(1rem, 0.4rem + 2.8vw, 2.75rem);
+  --grid-gap: clamp(1rem, 0.6rem + 1.6vw, 2rem);
+  --header-height: 4rem;
+
+  /* Shape: square system. 2px only softens interactive controls. */
+  --radius: 2px;
+  --radius-pill: 999px; /* actions are pills, as on the reference */
+  --border: 1px solid var(--hairline);
+  --border-ink: 1px solid var(--ink);
+
+  /* Route motif: one line weight, one node size, one chevron, everywhere it appears. */
+  --route-weight: 1.5px;
+  --route-node: 8px;
+  --route-chevron: 10px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 150ms;
+  --dur-2: 260ms;
+  --dur-3: 700ms;
+}

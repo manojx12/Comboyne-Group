@@ -1,0 +1,87 @@
+/* ServiceLayout */
+.service-body {
+  display: grid;
+  gap: var(--s-8);
+}
+
+/* Unboxed: a single ink rule heads the summary; the quote button is the only accent. */
+.glance {
+  display: grid;
+  gap: var(--s-4);
+  padding-top: var(--s-5);
+  border-top: var(--route-weight) solid var(--ink);
+}
+
+.glance__title {
+  color: var(--rust);
+}
+
+.glance__name {
+  font-size: 1.375rem;
+  font-weight: var(--weight-h3);
+  font-stretch: var(--stretch-heading);
+  line-height: 1.15;
+}
+
+.glance__list {
+  list-style: none;
+  padding: 0;
+  border-top: var(--border-ink);
+}
+
+.glance__list li {
+  display: grid;
+  grid-template-columns: 2.25rem 1fr;
+  align-items: baseline;
+  padding-block: var(--s-3);
+  border-bottom: var(--border);
+  font-size: 1rem;
+}
+
+.glance__list .label {
+  color: var(--rust);
+}
+
+.glance__benefit {
+  color: var(--steel);
+  font-size: 1rem;
+}
+
+.glance__cta {
+  justify-self: start;
+}
+
+.service-body__content h2 {
+  font-size: var(--text-h3);
+  margin-top: var(--s-8);
+}
+
+.service-body__content h2:first-child {
+  margin-top: 0;
+}
+
+.service-body__content p,
+.service-body__content li {
+  color: var(--ink);
+}
+
+.service-body__content .figure {
+  margin-block: var(--s-7);
+}
+
+.service-body__content a {
+  color: var(--rust);
+}
+
+@media (min-width: 64em) {
+  .service-body {
+    grid-template-columns: 4fr 7fr;
+    gap: calc(var(--grid-gap) * 3);
+    align-items: start;
+  }
+
+  .service-body__aside {
+    position: sticky;
+    top: calc(var(--header-height) + var(--s-6));
+  }
+}

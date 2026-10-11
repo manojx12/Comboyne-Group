@@ -1,0 +1,166 @@
+/* DepotSchematic */
+.hubs {
+  background: var(--paper-deep);
+}
+
+.hubs__head {
+  display: grid;
+  gap: var(--s-6);
+}
+
+.hubs__title {
+  font-size: var(--text-h2);
+}
+
+.hubs__intro {
+  margin-top: var(--s-4);
+  color: var(--steel);
+  max-width: 34em;
+}
+
+.hubs__list {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--s-8);
+  display: grid;
+}
+
+/* Small screens: stacked in listing order, divided by ink rules. */
+.hub {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+  padding-block: var(--s-6);
+  border-top: var(--border-ink);
+}
+
+.hub__city {
+  font-size: clamp(1.875rem, 1.5rem + 1.4vw, 2.5rem);
+  letter-spacing: -0.035em;
+}
+
+.hub__suburb {
+  font-size: var(--text-xs);
+  font-weight: 650;
+  font-stretch: var(--stretch-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+.hub__address {
+  display: grid;
+  font-style: normal;
+  margin-top: var(--s-2);
+}
+
+.hub__contact {
+  display: grid;
+  font-size: 1rem;
+  padding-top: var(--s-3);
+  border-top: var(--border);
+}
+
+.hub__dept {
+  color: var(--steel);
+}
+
+.hub__contact a,
+.hub__links a {
+  overflow-wrap: anywhere;
+}
+
+.hub__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 var(--s-5);
+}
+
+.hub__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  min-height: 2.75rem;
+  color: var(--rust);
+  font-weight: 600;
+}
+
+/* Schematic: wide screens only. On small screens the list carries the same information. */
+.hubs__map {
+  display: none;
+}
+
+.hubs__map svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.map__line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 3 5;
+}
+
+.map__stop rect {
+  fill: var(--paper-deep);
+  stroke: var(--ink);
+  stroke-width: 1.5;
+  transition: fill var(--dur-2) var(--ease-out);
+}
+
+.map__stop text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  fill: var(--ink);
+}
+
+.hubs__map figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.6875rem;
+  color: var(--steel);
+}
+
+/* Hovering or focusing a depot fills its stop. */
+.hubs:has(.hub--nsw:is(:hover, :focus-within)) .map__stop--nsw rect,
+.hubs:has(.hub--vic:is(:hover, :focus-within)) .map__stop--vic rect,
+.hubs:has(.hub--qld:is(:hover, :focus-within)) .map__stop--qld rect {
+  fill: var(--orange);
+  stroke: var(--orange);
+}
+
+@media (min-width: 56em) {
+  /* Three columns separated by hairlines, held together by one ink rule above. */
+  .hubs__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-top: var(--border-ink);
+  }
+
+  .hub {
+    border-top: 0;
+    padding: var(--s-6) var(--s-6) var(--s-2);
+    border-left: var(--border);
+  }
+
+  .hub:first-child {
+    border-left: 0;
+    padding-left: 0;
+  }
+}
+
+@media (min-width: 64em) {
+  .hubs__head {
+    grid-template-columns: minmax(0, 8fr) minmax(0, 3fr);
+    align-items: end;
+    gap: calc(var(--grid-gap) * 3);
+  }
+
+  .hubs__map {
+    display: grid;
+    gap: var(--s-2);
+    max-width: 16rem;
+    justify-self: end;
+  }
+}

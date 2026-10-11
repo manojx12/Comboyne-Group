@@ -1,0 +1,58 @@
+/* AboutBand */
+.about {
+  padding-bottom: var(--section-space);
+}
+
+.about__band .photo {
+  gap: 0;
+}
+
+.about__band .photo__credit {
+  padding: var(--s-2) var(--gutter) 0;
+}
+
+.about__grid {
+  display: grid;
+  gap: var(--s-5);
+  margin-top: var(--s-6);
+}
+
+.about__panel {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 34rem;
+}
+
+.about__title {
+  font-size: var(--text-h3);
+  font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  margin-bottom: var(--s-2);
+}
+
+.about__panel p {
+  color: var(--steel);
+}
+
+.about__panel .link-arrow {
+  justify-self: start;
+  margin-top: var(--s-2);
+}
+
+@media (min-width: 64em) {
+  .about__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: calc(var(--grid-gap) * 3);
+    align-items: start;
+    margin-top: 0;
+  }
+
+  /* The panel steps up over the lower edge of the photograph, in the right-hand column. */
+  .about__panel {
+    grid-column: 2;
+    position: relative;
+    margin-top: calc(var(--s-10) * -1.25);
+    padding: var(--s-7) var(--s-7) 0;
+    background: var(--paper);
+    max-width: 38rem;
+  }
+}

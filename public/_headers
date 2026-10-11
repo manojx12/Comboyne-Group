@@ -1,0 +1,20 @@
+# Response headers (Netlify / Cloudflare Pages format).
+# The Content-Security-Policy value is written by scripts/prerender.mjs at build time
+# (it hashes the page's inline script and adds the quote endpoint's origin when one is set).
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  X-Frame-Options: DENY
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=()
+  Strict-Transport-Security: max-age=31536000
+  Content-Security-Policy: __CSP__
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Generated image variants keep stable names, so they are cached for a week rather than forever.
+/img/*
+  Cache-Control: public, max-age=604800
+
+/documents/*
+  Cache-Control: public, max-age=86400

@@ -1,0 +1,139 @@
+/* ServicesIndex */
+.svc {
+  border-top: var(--border);
+}
+
+.svc__grid {
+  display: grid;
+  gap: var(--s-7);
+}
+
+.svc__title {
+  font-size: var(--text-h2);
+  max-width: 14ch;
+}
+
+.svc__intro {
+  margin-top: var(--s-4);
+  font-size: var(--text-lead);
+  color: var(--steel);
+  max-width: 34em;
+}
+
+.svc__group {
+  margin-top: var(--s-6);
+  padding-top: var(--s-4);
+  border-top: var(--border-ink);
+}
+
+.svc__group-head {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--s-4);
+}
+
+.svc__group-num {
+  font-size: clamp(3.5rem, 2rem + 5vw, 7rem);
+  font-weight: var(--weight-display);
+  font-stretch: var(--stretch-display);
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+
+.svc__group-title {
+  font-size: clamp(1.625rem, 1.2rem + 1.2vw, 2.5rem);
+  font-weight: var(--weight-heading);
+  letter-spacing: -0.03em;
+}
+
+.svc__group-title a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  text-decoration: none;
+}
+
+.svc__group-title a svg {
+  color: var(--rust);
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+.svc__group-title a:hover svg {
+  transform: translateX(4px);
+}
+
+.svc__list {
+  list-style: none;
+  padding: 0;
+  margin-top: var(--s-3);
+}
+
+.svc__item {
+  position: relative;
+  display: grid;
+  gap: 0.15rem;
+  padding: var(--s-3) var(--s-3) var(--s-3) 0;
+  border-bottom: var(--border);
+  text-decoration: none;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+/* Directional hover: a short orange rule slides in and the row nudges forward. */
+.svc__item::before {
+  content: '';
+  position: absolute;
+  left: -1rem;
+  top: 1.15rem;
+  width: 0.6rem;
+  height: 1px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-2) var(--ease-out);
+}
+
+.svc__item:hover,
+.svc__item:focus-visible {
+  transform: translateX(0.5rem);
+}
+
+.svc__item:hover::before,
+.svc__item:focus-visible::before {
+  transform: scaleX(1);
+}
+
+.svc__name {
+  font-family: var(--font-display);
+  font-size: 1.1875rem;
+  font-weight: var(--weight-h3);
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.svc__text {
+  font-size: 1rem;
+  color: var(--steel);
+}
+
+@media (min-width: 64em) {
+  .svc__grid {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: calc(var(--grid-gap) * 3);
+    align-items: start;
+  }
+
+  .svc__head {
+    position: sticky;
+    top: calc(var(--header-height) + var(--s-6));
+  }
+
+  .svc__group:first-child {
+    margin-top: 0;
+  }
+
+  .svc__group--warehousing .svc__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: var(--grid-gap);
+  }
+}

@@ -1,0 +1,7 @@
+# Redirects from the previous GoDaddy website URLs (Netlify / Cloudflare Pages format).
+# For Vercel, see the equivalent "redirects" block in README.md.
+/our-services                    /services                       301
+/contact-details                 /contact                        301
+/history                         /about                          301
+/freight-terms-%26-condition     /freight-terms-and-conditions   301
+/freight-terms-&-condition       /freight-terms-and-conditions   301

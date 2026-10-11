@@ -1,0 +1,30 @@
+{
+  "name": "comboyne-group-website",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Comboyne Group website — commercial furniture transport, installation and warehousing.",
+  "scripts": {
+    "images": "node scripts/build-images.mjs",
+    "dev": "npm run images && vite",
+    "build": "npm run images && tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr && node scripts/prerender.mjs",
+    "preview": "vite preview",
+    "check": "npm run images && tsc --noEmit",
+    "verify": "npm run build && node scripts/verify-build.mjs",
+    "grade:images": "node scripts/grade-images.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "typescript": "^6.0.3",
+    "vite": "^8.3.4"
+  }
+}

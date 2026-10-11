@@ -1,0 +1,25 @@
+/* careers */
+.careers__status {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 40rem;
+  padding-top: var(--s-5);
+  border-top: var(--border-ink);
+}
+
+.careers__label {
+  color: var(--rust);
+}
+
+.careers__title {
+  font-size: var(--text-h3);
+}
+
+.careers__status .btn {
+  justify-self: start;
+  margin-top: var(--s-2);
+}
+
+.careers__email {
+  font-size: var(--text-sm);
+}

@@ -1,0 +1,21 @@
+/* SectionHeader */
+.section-header {
+  display: grid;
+  gap: var(--s-4);
+  max-width: 48rem;
+}
+
+.section-header__label {
+  color: var(--rust);
+}
+
+.on-dark .section-header__label {
+  color: var(--orange);
+}
+
+.section-header__intro {
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  color: var(--steel);
+  max-width: 36em;
+}

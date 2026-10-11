@@ -1,0 +1,91 @@
+/* LocationCard */
+/* Unboxed column: rules and spacing carry the structure. */
+.depot {
+  display: grid;
+  gap: var(--s-5);
+  align-content: start;
+  padding-top: var(--s-5);
+  height: 100%;
+}
+
+.depot__head {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.depot__state {
+  font-size: var(--text-xs);
+  font-weight: 650;
+  font-stretch: var(--stretch-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--rust);
+}
+
+.depot__title {
+  font-size: clamp(1.75rem, 1.45rem + 1.2vw, 2.25rem);
+  letter-spacing: -0.035em;
+}
+
+.depot__city {
+  color: var(--steel);
+  margin-top: var(--s-1);
+}
+
+.depot__address {
+  display: grid;
+  font-style: normal;
+  font-size: 1.0625rem;
+}
+
+.depot__contacts {
+  list-style: none;
+  padding: 0;
+  border-top: var(--border);
+}
+
+.depot__contacts li {
+  display: grid;
+  gap: var(--s-1);
+  padding-block: var(--s-3);
+  border-bottom: var(--border);
+}
+
+.depot__dept {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2);
+}
+
+.depot__dept .label {
+  color: var(--rust);
+}
+
+.depot__name {
+  font-weight: 600;
+}
+
+.depot__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-1) var(--s-4);
+  font-size: 0.9375rem;
+}
+
+.depot__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 2rem;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.depot__links a:hover {
+  text-decoration: underline;
+}
+
+.depot__directions {
+  justify-self: start;
+}

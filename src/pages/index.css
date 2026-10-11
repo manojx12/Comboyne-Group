@@ -1,0 +1,125 @@
+/* Homepage: opening frame and revealed section of the GlyphPortal. */
+
+/* Small screens: label, heading, photograph, then the text and actions. */
+.opening {
+  display: grid;
+  gap: var(--s-5);
+  grid-template-areas:
+    'label'
+    'title'
+    'plate'
+    'body';
+}
+
+.opening__label {
+  grid-area: label;
+  color: var(--orange);
+}
+
+.opening__title {
+  grid-area: title;
+  font-size: clamp(2.25rem, 1rem + 3.6vw, 4.75rem);
+  line-height: 1;
+  max-width: 12em;
+}
+
+.opening__body {
+  grid-area: body;
+  display: grid;
+  gap: var(--s-4);
+  justify-items: start;
+}
+
+.opening__lead {
+  font-size: var(--text-lead);
+  line-height: 1.5;
+  color: rgb(245 243 238 / 0.86);
+  max-width: 30em;
+}
+
+.opening__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+}
+
+.portal .opening__booking {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35em;
+  min-height: 2.75rem;
+  font-size: var(--text-sm);
+  color: var(--steel-light);
+  text-decoration: none;
+}
+
+.portal .opening__booking:hover {
+  color: var(--paper);
+  text-decoration: underline;
+}
+
+/* The genuine truck photograph, framed at no more than its native width (800 px). */
+.opening__plate {
+  grid-area: plate;
+  width: 100%;
+  max-width: 45rem;
+}
+
+.opening__plate .photo__frame {
+  outline: 1px solid rgb(245 243 238 / 0.16);
+  outline-offset: -1px;
+}
+
+@media (min-width: 64em) {
+  .opening {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas:
+      'label plate'
+      'title plate'
+      'body plate';
+    column-gap: calc(var(--grid-gap) * 2);
+  }
+
+  .opening__plate {
+    align-self: end;
+    justify-self: end;
+  }
+
+  /* Height-capped so the opening fits a 768px-tall laptop screen and the zoom can run. */
+  .opening__title {
+    font-size: min(clamp(2.25rem, 1rem + 3.6vw, 4.75rem), 7.2svh);
+  }
+}
+
+/* Revealed: a light field with one statement, its explanation and the company figures. */
+.revealed {
+  display: grid;
+  gap: var(--s-6) var(--grid-gap);
+}
+
+.revealed__title {
+  max-width: 13em;
+}
+
+.revealed__side {
+  display: grid;
+  gap: var(--s-5);
+  justify-items: start;
+  align-content: end;
+}
+
+.revealed__lead {
+  max-width: 32em;
+}
+
+@media (min-width: 64em) {
+  .revealed {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    row-gap: var(--s-8);
+  }
+
+  .revealed .figures {
+    grid-column: 1 / -1;
+  }
+}
